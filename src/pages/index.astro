@@ -1,17 +1,301 @@
 ---
-
+import '../styles/global.css';
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/png" href="/logo.png" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Señor Taxes — Building in public</title>
 	</head>
-	<body>
-		<h1>Astro</h1>
+	<body class="bg-slate-950 text-white antialiased">
+		<main class="relative min-h-screen overflow-hidden">
+			<div class="absolute inset-0">
+				<div class="bg-orb orb-1"></div>
+				<div class="bg-orb orb-2"></div>
+				<div class="bg-orb orb-3"></div>
+				<div class="grid-overlay"></div>
+				<div class="scanline"></div>
+			</div>
+
+			<div class="top-controls">
+				<button class="language-toggle" id="languageToggle" aria-label="Cambiar idioma">
+					EN
+				</button>
+			</div>
+
+			<div class="relative z-10 mx-auto flex min-h-screen max-w-4xl flex-col items-center justify-center gap-8 px-6 py-14 text-center">
+				<img src="/logo.png" alt="Señor Taxes" class="h-24 w-auto sm:h-28" />
+
+				<section class="flex flex-col items-center gap-8">
+
+					<div class="flex flex-col gap-5 text-center">
+						<h1 class="text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
+							<span data-es="Estamos creando una experiencia moderna de impuestos" data-en="We are crafting a modern tax experience">Estamos creando una experiencia moderna de impuestos</span>
+							<span class="glow-text" data-es="que está cargando en tiempo real." data-en="that is loading live in real time.">que está cargando en tiempo real.</span>
+						</h1>
+						<p class="text-lg text-white/70" data-es="Nuestra página principal está en construcción. Muy pronto una experiencia rápida, clara y humana para ti." data-en="Our main page is under construction. Stay tuned for a fast, clear, and human experience designed for you.">Nuestra página principal está en construcción. Muy pronto una experiencia rápida, clara y humana para ti.</p>
+					</div>
+
+					<div class="flex flex-col gap-4 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+						<div class="flex items-center justify-between text-sm text-white/70">
+							<span>Assembling interface</span>
+						</div>
+						<div class="loader-bar">
+							<span></span>
+						</div>
+						<div class="flex items-center gap-2 text-sm text-white/60">
+							<span class="dot dot-1"></span>
+							<span class="dot dot-2"></span>
+							<span class="dot dot-3"></span>
+							<span>Preparing the new site</span>
+						</div>
+					</div>
+
+					<div class="flex items-center gap-5 text-white/60">
+						<a class="social-icon" href="https://www.instagram.com/elsenordelostaxes/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+							<svg viewBox="0 0 24 24" aria-hidden="true">
+								<path
+									d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm10 2H7a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm-5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 8.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 10.5zm4.8-3.6a1 1 0 1 1-1.6 1.2 1 1 0 0 1 1.6-1.2z"
+								/>
+							</svg>
+						</a>
+						<a class="social-icon" href="https://www.tiktok.com/@elsenordelostaxes" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+							<svg viewBox="0 0 24 24" aria-hidden="true">
+								<path
+									d="M14.5 3a5.5 5.5 0 0 0 4.5 2.2V7a7.5 7.5 0 0 1-4.5-1.4v7.2a5.1 5.1 0 1 1-5.1-5.1c.4 0 .8 0 1.1.1v2.3a2.8 2.8 0 1 0 1.9 2.7V3h2.1z"
+								/>
+							</svg>
+						</a>
+						<a class="social-icon" href="https://www.youtube.com/@elsenordelostaxes" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+							<svg viewBox="0 0 24 24" aria-hidden="true">
+								<path
+									d="M22 12s0-3.4-.4-5c-.2-1.1-1.1-2-2.2-2.2C17.8 4.4 12 4.4 12 4.4s-5.8 0-7.4.4c-1.1.2-2 1.1-2.2 2.2C2 8.6 2 12 2 12s0 3.4.4 5c.2 1.1 1.1 2 2.2 2.2 1.6.4 7.4.4 7.4.4s5.8 0 7.4-.4c1.1-.2 2-1.1 2.2-2.2.4-1.6.4-5 .4-5zm-12 3.5V8.5l6 3.5-6 3.5z"
+								/>
+							</svg>
+						</a>
+						<a class="social-icon" href="https://www.facebook.com/profile.php?id=61560863972424" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+							<svg viewBox="0 0 24 24" aria-hidden="true">
+								<path
+									d="M15 8.5h-2.2V7.2c0-.6.4-.8 1-.8h1.2V4h-2.1c-2.5 0-3.6 1.6-3.6 3.3v1.2H8v2.4h1.3V20h2.5v-9.1H14l.4-2.4z"
+								/>
+							</svg>
+						</a>
+						<a class="social-icon" href="https://api.whatsapp.com/send/?phone=18017557181&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+							<svg viewBox="0 0 24 24" aria-hidden="true">
+								<path
+									d="M12 2a9.8 9.8 0 0 0-8.5 14.8L2 22l5.4-1.4A9.8 9.8 0 1 0 12 2zm0 2.2a7.6 7.6 0 0 1 0 15.2c-1.4 0-2.7-.4-3.9-1l-.3-.2-3.1.8.8-3-.2-.3a7.3 7.3 0 0 1-1.1-3.9A7.6 7.6 0 0 1 12 4.2zm4.3 10.6c-.2.6-1 1.1-1.7 1.2-.5.1-1.1.2-2.6-.6-1.9-1-3.1-2.8-3.2-2.9-.3-.4-.8-1.2-.8-2s.4-1.2.6-1.4c.2-.2.5-.2.7-.2h.5c.2 0 .4 0 .5.4.2.4.7 1.7.7 1.8.1.1.1.3 0 .5-.1.2-.2.3-.3.4l-.3.3c-.1.1-.2.2-.1.4.1.2.5.8 1 1.3.7.7 1.3.9 1.5 1 .2.1.3.1.4 0l.6-.7c.1-.2.3-.2.5-.1.2.1 1.6.8 1.9.9.3.1.5.2.5.3.1.1.1.6-.1 1.2z"
+								/>
+							</svg>
+						</a>
+					</div>
+				</section>
+			</div>
+		</main>
+		<script is:inline>
+			let currentLanguage = 'es';
+
+			document.addEventListener('DOMContentLoaded', () => {
+				const savedLanguage = localStorage.getItem('language');
+				currentLanguage = savedLanguage || 'es';
+				updateLanguageDisplay();
+				const languageToggle = document.getElementById('languageToggle');
+				if (languageToggle) {
+					languageToggle.addEventListener('click', toggleLanguage);
+				}
+			});
+
+			function toggleLanguage() {
+				currentLanguage = currentLanguage === 'es' ? 'en' : 'es';
+				localStorage.setItem('language', currentLanguage);
+				updateLanguageDisplay();
+			}
+
+			function updateLanguageDisplay() {
+				const languageToggle = document.getElementById('languageToggle');
+				if (languageToggle) {
+					languageToggle.textContent = currentLanguage === 'es' ? 'EN' : 'ES';
+				}
+				document.documentElement.setAttribute('lang', currentLanguage);
+				document.querySelectorAll('[data-es][data-en]').forEach(element => {
+					const text = element.getAttribute(`data-${currentLanguage}`);
+					if (text) {
+						element.textContent = text;
+					}
+				});
+			}
+		</script>
+		<style>
+			.top-controls {
+				position: absolute;
+				top: 1.5rem;
+				right: 1.5rem;
+				z-index: 20;
+				display: flex;
+				align-items: center;
+				gap: 0.75rem;
+			}
+			.language-toggle {
+				background: rgba(255, 255, 255, 0.05);
+				border: 1px solid rgba(255, 255, 255, 0.2);
+				border-radius: 999px;
+				width: 44px;
+				height: 44px;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 12px;
+				font-weight: 700;
+				color: white;
+				transition: all 0.3s ease;
+				cursor: pointer;
+			}
+			.language-toggle:hover {
+				transform: translateY(-2px);
+				border-color: rgba(255, 255, 255, 0.45);
+				background: rgba(255, 255, 255, 0.12);
+			}
+			.bg-orb {
+				position: absolute;
+				width: 28rem;
+				height: 28rem;
+				border-radius: 999px;
+				filter: blur(80px);
+				opacity: 0.5;
+				mix-blend-mode: screen;
+				animation: float 14s ease-in-out infinite;
+			}
+			.orb-1 {
+				top: -10%;
+				left: -5%;
+				background: radial-gradient(circle, rgba(16, 185, 129, 0.8), transparent 65%);
+			}
+			.orb-2 {
+				top: 20%;
+				right: -10%;
+				background: radial-gradient(circle, rgba(59, 130, 246, 0.7), transparent 60%);
+				animation-delay: -6s;
+			}
+			.orb-3 {
+				bottom: -15%;
+				left: 25%;
+				background: radial-gradient(circle, rgba(236, 72, 153, 0.6), transparent 60%);
+				animation-delay: -3s;
+			}
+			.grid-overlay {
+				position: absolute;
+				inset: 0;
+				background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+					linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+				background-size: 80px 80px;
+				mask-image: radial-gradient(circle at top, rgba(0, 0, 0, 0.9), transparent 70%);
+			}
+			.scanline {
+				position: absolute;
+				inset: 0;
+				background: linear-gradient(transparent, rgba(255, 255, 255, 0.08), transparent);
+				height: 200%;
+				animation: scan 8s linear infinite;
+				opacity: 0.4;
+			}
+			.glow-text {
+				display: block;
+				background: linear-gradient(90deg, #34d399, #60a5fa, #f472b6);
+				-webkit-background-clip: text;
+				color: transparent;
+				text-shadow: 0 0 32px rgba(96, 165, 250, 0.4);
+			}
+			.loader-bar {
+				position: relative;
+				height: 8px;
+				width: 100%;
+				border-radius: 999px;
+				background: rgba(255, 255, 255, 0.08);
+				overflow: hidden;
+			}
+			.loader-bar span {
+				position: absolute;
+				inset: 0;
+				background: linear-gradient(90deg, #34d399, #60a5fa, #f472b6);
+				animation: progress 4s ease-in-out infinite;
+			}
+			.dot {
+				height: 6px;
+				width: 6px;
+				border-radius: 999px;
+				background: #34d399;
+				display: inline-block;
+				animation: pulse 1.4s ease-in-out infinite;
+			}
+			.dot-2 {
+				animation-delay: 0.2s;
+			}
+			.dot-3 {
+				animation-delay: 0.4s;
+			}
+			.social-icon {
+				height: 44px;
+				width: 44px;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				border-radius: 999px;
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				background: rgba(255, 255, 255, 0.04);
+				transition: all 0.3s ease;
+			}
+			.social-icon svg {
+				height: 20px;
+				width: 20px;
+				fill: currentColor;
+			}
+			.social-icon:hover {
+				color: white;
+				border-color: rgba(255, 255, 255, 0.3);
+				background: rgba(255, 255, 255, 0.08);
+				transform: translateY(-2px);
+			}
+			@keyframes float {
+				0%,
+				100% {
+					transform: translate3d(0, 0, 0);
+				}
+				50% {
+					transform: translate3d(0, 40px, 0);
+				}
+			}
+			@keyframes scan {
+				0% {
+					transform: translateY(-30%);
+				}
+				100% {
+					transform: translateY(30%);
+				}
+			}
+			@keyframes progress {
+				0% {
+					transform: translateX(-60%);
+				}
+				50% {
+					transform: translateX(0%);
+				}
+				100% {
+					transform: translateX(60%);
+				}
+			}
+			@keyframes pulse {
+				0%,
+				100% {
+					opacity: 0.4;
+					transform: scale(0.8);
+				}
+				50% {
+					opacity: 1;
+					transform: scale(1.2);
+				}
+			}
+		</style>
 	</body>
 </html>
