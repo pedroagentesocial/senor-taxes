@@ -746,7 +746,7 @@
             phone: ''
         };
         let currentLanguage = 'es'; // Default to Spanish
-        const makeWebhookUrl = 'https://hook.us1.make.com/bwrgtpp293rv8oule729judjjizmcncx';
+        const emailEndpoint = '/send-email.php';
 
         // Initialize when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
@@ -778,15 +778,6 @@
                 return;
             }
 
-            if (makeWebhookUrl.includes('REEMPLAZA')) {
-                const missingMessages = {
-                    es: 'Falta configurar el webhook de Make para poder enviar el formulario.',
-                    en: 'The Make webhook is missing. Please configure it to submit the form.'
-                };
-                showSubmitError(missingMessages[currentLanguage]);
-                return;
-            }
-            
             // Show loading state
             const submitBtn = document.getElementById('submitBtn');
             submitBtn.classList.add('loading');
@@ -794,13 +785,20 @@
             let successCompleted = false;
             
             try {
-                const response = await fetch(makeWebhookUrl, {
+                const response = await fetch(emailEndpoint, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name, phone, consent, updates })
+                    body: JSON.stringify({ name, phone, consent, updates, language: currentLanguage })
                 });
 
-                if (response.ok) {
+                let result = null;
+                try {
+                    result = await response.json();
+                } catch (parseError) {
+                    result = null;
+                }
+
+                if (response.ok && (!result || result.success)) {
                     // Store submitted data
                     personalInfo.name = name;
                     personalInfo.phone = phone;
@@ -815,16 +813,16 @@
                     }, 1200);
                 } else {
                     const apiMessages = {
-                        es: 'No se pudo enviar en este momento. Revisa la integración de Make.',
-                        en: 'We could not submit right now. Please check the Make integration.'
+                        es: 'No se pudo enviar el correo en este momento. Intenta de nuevo más tarde.',
+                        en: 'We could not send the email right now. Please try again later.'
                     };
                     showSubmitError(apiMessages[currentLanguage]);
                 }
             } catch (error) {
                 console.error('Error submitting form:', error);
                 const errorMessages = {
-                    es: 'No se pudo conectar con el servicio de envío. Revisa tu conexión y Make.',
-                    en: 'Could not reach the delivery service. Check your connection and Make.'
+                    es: 'No se pudo conectar con el servicio de envío. Revisa tu conexión.',
+                    en: 'Could not reach the delivery service. Check your connection.'
                 };
                 showSubmitError(errorMessages[currentLanguage]);
             } finally {
